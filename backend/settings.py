@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,11 @@ SECRET_KEY = 'django-insecure-ua)edj(w9t62r)^d*227q79rda=#e(0*in90w@tdvj)#w6i6k_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'chatappbackend-wcy5.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -46,7 +51,7 @@ CHANNEL_LAYERS = {
     'default' :{
         'BACKEND' : 'channels_redis.core.RedisChannelLayer',
         'CONFIG' : {
-            "hosts":[('127.0.0.1', 6379)],
+            "hosts":[os.environ.get("REDIS_URL")],
         }
     },
 }
@@ -88,8 +93,12 @@ ASGI_APPLICATION = 'backend.routing.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'chat_app_db_au4j',
+        'USER': 'chat_app_db_au4j_user',
+        'PASSWORD': 'BaMGwI4nQOQNUv2Zxq1HFhLPphbmrr6M',
+        'HOST': 'dpg-d20lqrfdiees739mc3kg-a',
+        'PORT': '5432'
     }
 }
 

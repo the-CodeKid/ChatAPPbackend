@@ -21,7 +21,7 @@ class RegisterView(APIView):
             return Response({"error": str(e)}, status=400)
         user = User.objects.create_user(
             username=data["username"],
-            email=data["email",''],
+            email=data.get("email",''),
             password=data["password"]
         )
         return Response({"success": "User created!"}, status=201)

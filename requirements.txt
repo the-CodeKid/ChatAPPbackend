@@ -6,3 +6,4 @@ django-cors-headers
 redis
 psycopg2-binary
 psycopg
+djangorestframework-simplejwt

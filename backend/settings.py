@@ -154,4 +154,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-CORS_ALLOWED_ORIGINS = ['https://chat-ap-pfrontend.vercel.app/']
+CORS_ALLOWED_ORIGINS = ['https://chat-ap-pfrontend.vercel.app']
